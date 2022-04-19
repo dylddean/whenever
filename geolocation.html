@@ -93,13 +93,16 @@
             </svg>
            
             <div class="wrapper">
-              <input type="text" class="input" 
+              <input type="text" id="pac-input" class="input" 
               placeholder="Enter an adress, neighborhood, city, Or ZIP">
               <div onClick="window.location.href='coming soon page.html';"class="searchbtn"><i class="fas fa-search"></i></div>
             </div>
             
-            
-              
+            <div class="content1">
+                  <div class="w-full">
+                      <div id="map"></div>
+                    </div>               
+            </div>
                 
                 <div class="content1">
                   <div class="w-5/6 sm:w-1/2 p-4">
@@ -230,6 +233,13 @@
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
+<script src="scripts.js">
+  
     <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
