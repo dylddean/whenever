@@ -72,9 +72,6 @@ body{
   
 }
 
-
-
-
 .content1 {
   align-items: center;
   display: flex;
@@ -83,4 +80,10 @@ body{
   margin-top: 300px;
   max-width: 100%;
 }
-
+#map {
+  height: 100%;
+  width: 100%;
+}
+.pac-item{
+  padding: 10px 15px;
+}
