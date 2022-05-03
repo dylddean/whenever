@@ -1,12 +1,6 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="singup.css"/>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <meta charset="UTF-8" />
@@ -27,7 +21,12 @@
         background: linear-gradient(90deg, #000000 0%, rgb(58, 56, 49) 100%);
       }
     </style>
-    <link rel="icon" href="house1.png" type="image/icon type">
+  <link rel="icon" href="house1.png" type="image/icon type">
+
+    <meta charset="UTF-8">
+    <title>Search Box Design</title>
+    <link rel="stylesheet" href="loans.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
@@ -50,15 +49,16 @@
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
           <ul class="list-reset lg:flex justify-end flex-1 items-center">
           <?php
-              if(isset($_SESSION["useruid"])) {
-                echo "<li><a herf='profile.php'>Profile page</a></li>";
-                echo "<li><a herf='logout.php'>Log out</a></li>";
-              }
-              else {
-                echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='signup.php'>Sign Up</a></span></li>";
-                echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='login.php'>Sign in</a></span></li>";
-              }
-            ?>
+            if (isset($_SESSION["useruid"])) {
+              echo "<li><a href='profile.php'>Profile Page</a></li>";
+              echo "<li><a href='logout.php'>Logout</a></li>";
+            }
+            else {
+              echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='signup.php'>Sign Up</a></span></li>";
+              echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='login.php'>Sign in</a></span></li>";
+              
+            }
+          ?>
             <li class="mr-3">
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Buy</a>
             </li>
@@ -68,8 +68,6 @@
             <li class="mr-3">
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Rent</a>
             </li>
-    
-            
           </ul>
           <button
             id="navAction"
@@ -80,10 +78,6 @@
         </div>
       </div>
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-      
-    
-    
-   
     </nav>
     <!--Hero-->
     <div class="pt-20">
@@ -97,72 +91,46 @@
       </div>
     </div>
 
-    <section class="bg-white">
-      
-          
- 
-        
-     
-      
-    
+    <section class="bg-white border-b py-8">
+      <div class="container max-w-5xl mx-auto m-8">
+        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Loans
+        </h1>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-5/6 sm:w-1/2 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Here to provide mortgage options for you
+            </h3>
+            <p class="text-gray-600 mb-8">
+              We're more flexible than the banks, credit unions, and private money lenders we're WheneverHome.
+              <br />
+              <br />
+              <button onClick="window.location.href='mortgage.php';" class="button1">Apply</button>
           </div>
-          <div class='content1'>
-            <div class="content4">
-              <div>
-                  <section class="signup-form">
-                    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                    Sign Up</h2>
-                    </div>
-                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-                    <form action="includes/signup.inc.php" method="post">
-                    <input type="text" name="name" placeholder="Full name...">
-                    <input type="text" name="email" placeholder="Email...">
-                    <input type="text" name="uid" placeholder="User name...">
-                    <input type="password" name="pwd" placeholder="Password...">
-                    <input type="password" name="pwdrepeat" placeholder="Repeat password...">
-                    <button type="submit" name="submit">Signup</buttton>
-              
-                    <?php
-
-if (isset($_GET["error"])) {
-  if ($_GET["error"] == "emptyinput") {
-    echo "<p>Fill in all fields!</p>";
-  }
-  elseif ($_GET["error"] == "invaliduid") {
-    echo "<p>Choose a proper username!</p>";
-  }
-  elseif ($_GET["error"] == "invalidemail") {
-    echo "<p>Choose a proper username!</p>";
-  }
-  elseif ($_GET["error"] == "passwordsdontmatch") {
-    echo "<p>Passwords doesn't match!</p>";
-  }
-  elseif ($_GET["error"] == "stmtfailed") {
-    echo "<p>Something wrong, try again!</p>";
-  }
-  elseif ($_GET["error"] == "usernametaken") {
-    echo "<p>Username already taken!</p>";
-  }
-  elseif ($_GET["error"] == "none") {
-    echo "<p>You have signed up!</p>";
-  }
-}
-
-?>
-
-                </section>
-
-               
-              
           
+          <div class="w-full sm:w-1/2 p-6">
+            <img src="mortgage.png">
         </div>
-      </div>
-    </div>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+          <img src="auto.png">
+          </div>
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                Here to provide auto loan options for you
+              </h3>
+              <p class="text-gray-600 mb-8">
+                We're more flexible than the banks, credit unions, and private money lenders we're WheneverHome.
+                <br />
+                <br />
+                <button onClick="window.location.href='auto.php';" class="button1">Apply</button>
+            </div>
+            
+   
     </section>
     
     <!-- Change the colour #f8fafc to match the previous section colour -->
@@ -261,8 +229,6 @@ if (isset($_GET["error"])) {
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
-  
-<script src="drop.js"></script>
     <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
@@ -343,24 +309,6 @@ if (isset($_GET["error"])) {
         }
         return false;
       }
-
-      function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
     </script>
   </body>
 </html>

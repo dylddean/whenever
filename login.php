@@ -34,7 +34,7 @@
     <nav id="header" class="fixed w-full z-30 top-0 text-white">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
-          <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
+          <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="index.php">
             
             WheneverHome
           </a>
@@ -62,19 +62,19 @@
           ?>
           
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.html">Buy</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Buy</a>
             </li>
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="coming soon page.html">Sell</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="coming soon page.php">Sell</a>
             </li>
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.html">Rent</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Rent</a>
             </li>
           
           </ul>
           <button
             id="navAction"
-            onClick="window.location.href='loans.html';" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            onClick="window.location.href='loans.php';" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
           >
             Loans
           </button>
@@ -184,13 +184,13 @@
             <p class="uppercase text-gray-500 md:mb-6">Links</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="contact.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
+                <a href="contact.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="contact.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
+                <a href="contact.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
               </li>
             </ul>
           </div>
@@ -198,10 +198,10 @@
             <p class="uppercase text-gray-500 md:mb-6">Legal</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
+                <a href="coming soon page.htphpml" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
               </li>
             </ul>
           </div>
@@ -209,13 +209,13 @@
             <p class="uppercase text-gray-500 md:mb-6">Social</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
               </li>
             </ul>
           </div>
@@ -223,13 +223,13 @@
             <p class="uppercase text-gray-500 md:mb-6">Company</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="coming soon page.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
+                <a href="coming soon page.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="contact.html" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
+                <a href="contact.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
               </li>
             </ul>
           </div>

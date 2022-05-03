@@ -1,21 +1,15 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="singup.css"/>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-      
+      WheneverHome
     </title>
-    <meta name="description" content="Simple landind page" />
+    <meta name="description" content="WheneverHome" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
@@ -49,16 +43,17 @@
         </div>
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
           <ul class="list-reset lg:flex justify-end flex-1 items-center">
-          <?php
-              if(isset($_SESSION["useruid"])) {
-                echo "<li><a herf='profile.php'>Profile page</a></li>";
-                echo "<li><a herf='logout.php'>Log out</a></li>";
-              }
-              else {
-                echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='signup.php'>Sign Up</a></span></li>";
-                echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='login.php'>Sign in</a></span></li>";
-              }
-            ?>
+            <?php
+            if (isset($_SESSION["useruid"])) {
+              echo "<li><a href='profile.php'>Profile Page</a></li>";
+              echo "<li><a href='logout.php'>Logout</a></li>";
+            }
+            else {
+              echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='signup.php'>Sign Up</a></span></li>";
+              echo "<span li class='mr-3'><a span class='inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4' href='login.php'>Sign in</a></span></li>";
+              
+            }
+          ?>
             <li class="mr-3">
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Buy</a>
             </li>
@@ -68,8 +63,8 @@
             <li class="mr-3">
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="geolocation.php">Rent</a>
             </li>
-    
             
+          
           </ul>
           <button
             id="navAction"
@@ -80,82 +75,117 @@
         </div>
       </div>
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-      
-    
-    
-   
     </nav>
     <!--Hero-->
-    <div class="pt-20">
-      
+    <div class="pt-24">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
-        
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+          <p class="uppercase tracking-loose w-full"></p>
+          <h1 class="my-4 text-5xl font-bold leading-tight">
+            Here to Provide a Home
+          </h1>
+          <p class="leading-normal text-2xl mb-8">
+            24 Hours a day 7 Days a week 365 Days a year
+          </p>
+          <button onClick="window.location.href='geolocation.php';" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            Find Home
+          </button>
+        </div>
         <!--Right Col-->
-       
-           <!--pnggggggg image-->
+        <div class="w-full md:w-3/5 py-6 text-center">
+          <img class="w-full md:w-4/5 z-50" src="house.png" /> <!--pnggggggg image-->
         </div>
       </div>
     </div>
-
-    <section class="bg-white">
-      
-          
- 
-        
-     
-      
-    
-          </div>
-          <div class='content1'>
-            <div class="content4">
-              <div>
-                  <section class="signup-form">
-                    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                    Sign Up</h2>
-                    </div>
-                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-                    <form action="includes/signup.inc.php" method="post">
-                    <input type="text" name="name" placeholder="Full name...">
-                    <input type="text" name="email" placeholder="Email...">
-                    <input type="text" name="uid" placeholder="User name...">
-                    <input type="password" name="pwd" placeholder="Password...">
-                    <input type="password" name="pwdrepeat" placeholder="Repeat password...">
-                    <button type="submit" name="submit">Signup</buttton>
-              
-                    <?php
-
-if (isset($_GET["error"])) {
-  if ($_GET["error"] == "emptyinput") {
-    echo "<p>Fill in all fields!</p>";
-  }
-  elseif ($_GET["error"] == "invaliduid") {
-    echo "<p>Choose a proper username!</p>";
-  }
-  elseif ($_GET["error"] == "invalidemail") {
-    echo "<p>Choose a proper username!</p>";
-  }
-  elseif ($_GET["error"] == "passwordsdontmatch") {
-    echo "<p>Passwords doesn't match!</p>";
-  }
-  elseif ($_GET["error"] == "stmtfailed") {
-    echo "<p>Something wrong, try again!</p>";
-  }
-  elseif ($_GET["error"] == "usernametaken") {
-    echo "<p>Username already taken!</p>";
-  }
-  elseif ($_GET["error"] == "none") {
-    echo "<p>You have signed up!</p>";
-  }
-}
-
-?>
-
-                </section>
-
-               
-              
-          
+    <div class="relative -mt-12 lg:-mt-24">
+      <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+            <path
+              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+              opacity="0.100000001"
+            ></path>
+            <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
+          </g>
+          <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path
+              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <section class="bg-white border-b py-8">
+      <div class="container max-w-5xl mx-auto m-8">
+        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          How it works
+        </h1>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
+        <div class="flex flex-wrap">
+          <div class="w-5/6 sm:w-1/2 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Find something near you
+            </h3>
+            <p class="text-gray-600 mb-8">
+              Find a home around you, or where you would like to move to
+              <br />
+              <br />
+          </div>
+          
+          <div class="w-full sm:w-1/2 p-6">
+            <img src="move.png">
+        </div>
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+          <img src="tour.png">
+          </div>
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                Hassle free tour
+              </h3>
+              <p class="text-gray-600 mb-8">
+                After finding the house, sign a legal liability agreement, get sent a digital key, scan key at house to unlock, and tour all by yourself!
+                <br />
+                <br />
+            </div>
+            
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-5/6 sm:w-1/2 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Screening
+            </h3>
+            <p class="text-gray-600 mb-8">
+              Submit w2's, background check, license, and wait for an email.
+              <br />
+              <br />
+          </div>
+          <div class="w-full sm:w-1/2 p-6">
+          <img src="id.png">
+      </div>
+      
+        </div>
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+          <img src="guymove.png">
+          </div>
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                Move in
+              </h3>
+              <p class="text-gray-600 mb-8">
+                After the email from screening, sign a lease, and move in!
+                <br />
+                <br />
+            </div>
+            
       </div>
     </div>
           </p>
@@ -187,8 +217,18 @@ if (isset($_GET["error"])) {
         </g>
       </g>
     </svg>
-    
-      
+    <section class="container mx-auto text-center py-6 mb-12">
+      <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Ready to find a home?
+      </h1>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+  
+      </h3>
+      <button onClick="window.location.href='geolocation.php';" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        Find Home
+      </button>
     </section>
     <!--Footer-->
     <footer class="bg-white">
@@ -256,13 +296,11 @@ if (isset($_GET["error"])) {
           </div>
         </div>
       </div>
-      
+
     </footer>
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
-  
-<script src="drop.js"></script>
     <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
@@ -343,24 +381,6 @@ if (isset($_GET["error"])) {
         }
         return false;
       }
-
-      function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
     </script>
   </body>
 </html>
